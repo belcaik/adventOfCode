@@ -55,5 +55,7 @@ similarities.forEach((similarity: similarity) => {
 });
 
 
-console.log(endScore);
+console.log(`========= the end score is:`, endScore, '========='
+);
+
 console.timeEnd('executionTime');
