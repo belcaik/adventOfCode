@@ -39,8 +39,6 @@ const isReportSafe = (report: numberArray): boolean | [boolean,number]=> {
 };
 
 const checkIfSafeRemovingOne = (report: numberArray): boolean => {
-
- 
     let isSafe: boolean | [boolean,number] = isReportSafe(report);
     let failIdx = 0;
 
@@ -48,18 +46,12 @@ const checkIfSafeRemovingOne = (report: numberArray): boolean => {
 
     if (Array.isArray(isSafe)) failIdx = isSafe[1];
     
-    console.log("\n=======\nREPORT: ", report);
-    console.log("FAIL IDX: ", failIdx, "VALUE: ", report[failIdx], "NEXT VALUE: ", report[failIdx+1]);
     let reportCopy = [...report];
 
     reportCopy.splice(failIdx, 1);
 
-    console.log("REPORT COPY: ", reportCopy);
-
     isSafe = isReportSafe(reportCopy);
     if (!Array.isArray(isSafe)&&isSafe) return true;
-
-    console.log("IS SAFE: ", isSafe);
     reportCopy = [];
     reportCopy = [...report];
 
@@ -69,8 +61,6 @@ const checkIfSafeRemovingOne = (report: numberArray): boolean => {
     if (!Array.isArray(isSafe)&&isSafe) return true;
 
     if (failIdx === 0) return false; // nothing to do here, it's over
-
-    
     reportCopy = [];
     reportCopy = [...report];
 
@@ -78,13 +68,7 @@ const checkIfSafeRemovingOne = (report: numberArray): boolean => {
     isSafe = isReportSafe(reportCopy);
 
     if (!Array.isArray(isSafe)&&isSafe) return true;
-
-
-    console.log("IS SAFE: ", isSafe);
     return false;
-
-
-
 };
 
 // PART 1
