@@ -1,7 +1,5 @@
 import { readFileSync } from 'fs';
 
-console.time('executionTime');
-
 type similarity = {
     numberToCompare: number;
     timesItAppears: number;
@@ -9,21 +7,28 @@ type similarity = {
 }
 
 const inputPath: string = __dirname + '/input.txt';
-const input = readFileSync(inputPath, 'utf-8');
+const readAndSplitFile = (path: string) => {
+
+    const input = readFileSync (path, 'utf-8');
+    const rows = input.split('\n');
+
+    rows.forEach((row) => {
+        const splittedRow = row.split('   ');
+        let aux: number;
+        aux = parseInt(splittedRow[0]);
+        groupOne.push(aux);
+        aux = parseInt(splittedRow[1]);
+        groupTwo.push(aux);
+    });
+}
+
+console.time('executionTime');
+
 const groupOne: number[] = [];
 const groupTwo: number[] = [];
-const rows = input.split('\n');
-const rowsLength = rows.length;
 const similarities: similarity[] = [];
 
-rows.forEach((row) => {
-    const splittedRow = row.split('   ');
-    let aux: number;
-    aux = parseInt(splittedRow[0]);
-    groupOne.push(aux);
-    aux = parseInt(splittedRow[1]);
-    groupTwo.push(aux);
-});
+readAndSplitFile(inputPath);
 
 groupOne.sort((a: number, b: number) => a - b);
 groupTwo.sort((a: number, b: number) => a - b);
