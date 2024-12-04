@@ -19,7 +19,7 @@ jobs:
           userid: 3519544                          # your user id, see setup on how to obtain
           session: ${{ secrets.AOC_SESSION }}    # secret containing session code, see setup on how to obtain
           year: 2024                                                                                     # The year for which stats should be retrieved
-          file: '2024/README.md'                                                                              # The file that contains the badges    
+          file: '2024/README.MD'                                                                              # The file that contains the badges    
 #         Optional inputs:
         # 3519544-687aa040
 #         leaderboard: 'https://adventofcode.com/2020/leaderboard/private/view/00000.json'               # The url of the leaderboard from witch the data is fetched. Typically your private leaderboard.
